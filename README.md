@@ -12,6 +12,10 @@ Update the completion status of a todo by clicking on the `Update` button.
 
 Delete a todo by clicking on the `Delete` button.
 
+Filter the completed todos by clicking the `Filter Completed Tasks` button. Click again to unfilter.
+
 ## Code Citation
 
 Derived from https://www.python-engineer.com/posts/flask-todo-app/
+
+Added filtering and fixed the bug that generates new todos when inputting empty text.
