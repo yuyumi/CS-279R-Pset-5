@@ -28,7 +28,7 @@ def home():
     todo_list = Todo.query.all()
 
     # Render the index HTML and the todos
-    return render_template("base.html", todo_list=todo_list)
+    return render_template("base.html", todo_list=todo_list, filtered=False)
 
 # Routing code for the add page
 @app.route("/add", methods=["POST"])
@@ -79,6 +79,16 @@ def delete(todo_id):
 
     # Return to the index page
     return redirect(url_for("home"))
+
+# Routing code for the filtering page
+@app.route("/filter/")
+def find_complete():
+
+    # Find the first todo that has the same id as the query id
+    todo_list = Todo.query.filter_by(complete=False)
+
+    # Rerender the page
+    return render_template("base.html", todo_list=todo_list, filtered=True)
 
 # Main/default method to run the application and create the database
 if __name__ == "__main__":
